@@ -1,22 +1,3 @@
-/*
-   netttt - evolving neural networks to play tic tac toe
-            <https://chazomaticus.github.io/netttt/>
-   Copyright 2013 Charles Lindsay
-
-   netttt is free software: you can redistribute it and/or modify it under the
-   terms of the GNU General Public License as published by the Free Software
-   Foundation, either version 3 of the License, or (at your option) any later
-   version.
-
-   netttt is distributed in the hope that it will be useful, but WITHOUT ANY
-   WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-   FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
-   details.
-
-   You should have received a copy of the GNU General Public License along with
-   netttt.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
 "use strict";
 
 module("Ttt");
@@ -52,27 +33,23 @@ test("win conditions", function () {
             b = Ttt.move(b, i * 3 + 1, piece);
             b = Ttt.move(b, i * 3 + 2, piece);
             strictEqual(Ttt.winner(b), piece, (piece === Ttt.X ? "X" : "O") + " wins, horizontal " + i);
-
             b = Ttt.newBoard();
             b = Ttt.move(b, i + 0, piece);
             b = Ttt.move(b, i + 3, piece);
             b = Ttt.move(b, i + 6, piece);
             strictEqual(Ttt.winner(b), piece, (piece === Ttt.X ? "X" : "O") + " wins, vertical " + i);
         }
-
         b = Ttt.newBoard();
         b = Ttt.move(b, 0, piece);
         b = Ttt.move(b, 4, piece);
         b = Ttt.move(b, 8, piece);
         strictEqual(Ttt.winner(b), piece, (piece === Ttt.X ? "X" : "O") + " wins, diagonal 0");
-
         b = Ttt.newBoard();
         b = Ttt.move(b, 2, piece);
         b = Ttt.move(b, 4, piece);
         b = Ttt.move(b, 6, piece);
         strictEqual(Ttt.winner(b), piece, (piece === Ttt.X ? "X" : "O") + " wins, diagonal 1");
     });
-
     b = Ttt.newBoard();
     b = Ttt.move(b, 0, Ttt.X);
     b = Ttt.move(b, 1, Ttt.O);
